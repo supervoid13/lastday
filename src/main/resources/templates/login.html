@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Sign in</title>
+    <link rel="stylesheet" href="css/auth_style.css">
+</head>
+
+<body>
+<h1>Please, sign in</h1>
+<div id="wrapper">
+    <form th:action="@{/login}" id="signin" method="post" autocomplete="off">
+        <input type="text" id="username" name="username" placeholder="username" />
+        <input type="password" id="password" name="password" placeholder="password" />
+        <button type="submit">&#xf0da;</button>
+        <p>to sign up <a href="/registration">click here</a></p>
+        <p th:if="${param.error}">
+            Invalid username or password.
+        </p>
+    </form>
+</div>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http:/thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Last Day - Horoscope</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--HOROSCOPE-->
+<!--<br>-->
+<!--<a href="http://localhost:8080/catalog/">Вернуться в каталог</a>-->
+<!--<br><br>-->
+<!--Выберите знак зодиака:<br>-->
+<!--<div th:each="sign : ${signList}">-->
+<!--    <a th:href="@{/catalog/horoscope(sign=${sign})}"><span th:text="${sign}"></span></a>-->
+<!--</div>-->
+<!--<div>-->
+<!--    <img src="/img/VIRGO.webp" width="333" height="333">-->
+<!--    <h3 th:text="${currentSign}"></h3>-->
+<!--    <h4 th:text="${signHoroscope}"></h4>-->
+<!--</div>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Horoscope</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<header>
+    <img class="logo" src="/img/logo.png" height="57" width="150">
+    <p class="weather" th:text="${date} + '. Moscow ' + ${weather.temperature} + ' °C, ' + ${weather.description}"></p>
+    <ul class="ul-auth">
+        <li>
+            <a href="/">Main</a>
+        </li>
+        <li sec:authorize="!isAuthenticated()">
+            <a href="/login">Log in</a>
+        </li>
+        <li sec:authorize="!isAuthenticated()">
+            <a href="/registration">Sign up</a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a href="/logout">Log out</a>
+        </li>
+    </ul>
+</header>
+<div class="urlastday">
+    <h1>YOUR LAST DAY</h1>
+    <p> WHAT WOULD YOU DO IF YOU KNOW THAT TODAY IS THE LAST DAY</p>
+</div>
+<div class="horoscope-info">
+    <ul>
+        <li th:each="sign : ${signList}">
+            <a th:href="@{/catalog/horoscope(sign=${sign})}"><span th:text="${sign}"></span></a>
+        </li>
+    </ul>
+    <div>
+        <h3 th:text="${currentSign}"></h3>
+        <p th:text="${signHoroscope}"></p>
+    </div>
+</div>
+</body>
+</html>

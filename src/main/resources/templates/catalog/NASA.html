@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>NASA</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+<header>
+    <img class="logo" src="/img/logo.png" height="57" width="150">
+    <p class="weather" th:text="${date} + '. Moscow ' + ${weather.temperature} + ' °C, ' + ${weather.description}"></p>
+    <ul class="ul-auth">
+        <li>
+            <a href="/">Main</a>
+        </li>
+        <li sec:authorize="!isAuthenticated()">
+            <a href="/login">Log in</a>
+        </li>
+        <li sec:authorize="!isAuthenticated()">
+            <a href="/registration">Sign up</a>
+        </li>
+        <li sec:authorize="isAuthenticated()">
+            <a href="/logout">Log out</a>
+        </li>
+    </ul>
+</header>
+<div class="urlastday">
+    <h1>YOUR LAST DAY</h1>
+    <p> WHAT WOULD YOU DO IF YOU KNOW THAT TODAY IS THE LAST DAY</p>
+</div>
+<div class="nasa-info">
+    <figure>
+        <img th:src="${nasaInfo.hdurl}" width="446" height="398">
+        <figcaption th:text="${nasaInfo.title}">
+        </figcaption>
+        <i th:text="${nasaInfo.explanation}"></i>
+    </figure>
+</div>
+</body>
+</html>

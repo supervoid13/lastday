@@ -1,0 +1,60 @@
+body {
+    color: white;
+    background-color: black;
+}
+header {
+    margin-left: 15%;
+    margin-right: 15%;
+    height: 80px;
+    background-color: white;
+    color: black;
+    border-radius: 0 0 20px 20px;
+}
+.weather {
+    margin-left: 10px;
+}
+.logo {
+    margin-left: 20px;
+}
+ul.ul-auth, .weather, .logo {
+    display: inline-block;
+}
+ul.ul-auth {
+    padding: 4px; /* Значение полей */
+    /*     text-align: right; */
+    margin: 0 0 0 400px;
+}
+ul.ul-auth li {
+    display: inline; /* Отображать как строчный элемент */
+    margin-left: 5px; /* Отступ слева */
+    padding: 3px; /* Поля вокруг текста */
+}
+ul.ul-auth a {
+    color: black;
+}
+.urlastday  {
+    margin-top: 50px;
+    text-align: center;
+}
+.catalog {
+    width: 100%;
+    margin-top: 50px;
+}
+ul.ul-catalog, .horoscope-info ul{
+    text-align: center;
+    list-style: none;
+}
+ul.ul-catalog li {
+    display: inline-block; /* Отображать как строчный элемент */
+    padding: 10px; /* Поля вокруг текста */
+}
+ul.ul-catalog a {
+    color: white;
+}
+.nhl-info, .history-info, .nasa-info, .horoscope-info a {
+    text-align: center;
+    color: white;
+}
+.nhl-info, .history-info {
+    margin-top: 200px;
+}

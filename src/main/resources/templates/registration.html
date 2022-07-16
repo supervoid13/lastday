@@ -1,0 +1,39 @@
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http:/thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Sign up</title>-->
+<!--</head>-->
+<!--<body>-->
+<!--<form th:object="${userForm}" th:action="@{/registration}" method="post">-->
+<!--    <div><label>Username: <input type="text" th:field="*{username}"/> </label></div>-->
+<!--    <div><label>Password: <input type="text" th:field="*{password}"/></label></div>-->
+<!--    <div><input type="submit" value="Sign up"/></div>-->
+<!--</form>-->
+<!--</body>-->
+<!--</html>-->
+
+
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http:/thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="css/auth_style.css">
+</head>
+
+<body>
+<h1>Please, sign up</h1>
+<div id="wrapper">
+    <form th:object="${userForm}" th:action="@{/registration}" id="signin" method="post">
+        <input type="text" id="username" th:field="*{username}" placeholder="username" />
+        <input type="password" id="password" th:field="*{password}" placeholder="password" />
+        <button type="submit">&#xf0da;</button>
+        <p>to sign in <a href="/login">click here</a></p>
+        <p th:if="${#fields.hasErrors('username')}">Invalid or used username</p>
+        <p th:if="${#fields.hasErrors('password')}">Invalid password</p>
+    </form>
+</div>
+</body>
+</html>
