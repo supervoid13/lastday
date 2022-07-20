@@ -35,18 +35,15 @@ public class NHLCommunication implements Communication {
     public NHLInfo getInfo() {
         Calendar calendar = Calendar.getInstance(Locale.US);
 
-//        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MMM-dd", Locale.ENGLISH);
-//        String date = formatter.format(calendar.getTime());
+        SimpleDateFormat formatter = new SimpleDateFormat("yyyy-MMM-dd", Locale.ENGLISH);
+        String date = formatter.format(calendar.getTime());
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Ocp-Apim-Subscription-Key", API_KEY);
         HttpEntity<MultiValueMap<String, String>> httpEntity = new HttpEntity<>(headers);
 
-//        ResponseEntity<String> responseEntity =
-//                restTemplate.exchange(URL + "/" + date, HttpMethod.GET, httpEntity,
-//                        String.class);
         ResponseEntity<String> responseEntity =
-                restTemplate.exchange(URL + "/" + "2022-MAY-28", HttpMethod.GET, httpEntity,
+                restTemplate.exchange(URL + "/" + date, HttpMethod.GET, httpEntity,
                         String.class);
 
         String json = responseEntity.getBody();

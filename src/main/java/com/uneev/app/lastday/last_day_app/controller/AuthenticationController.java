@@ -38,7 +38,7 @@ public class AuthenticationController {
         }
 
         if (!userService.saveUser(userForm)){
-            model.addAttribute("usernameError", "Пользователь с таким именем уже существует");
+            model.addAttribute("usernameError", "User with the same name already exists");
             return "registration";
         }
 

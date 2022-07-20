@@ -31,7 +31,8 @@
         <input type="password" id="password" th:field="*{password}" placeholder="password" />
         <button type="submit">&#xf0da;</button>
         <p>to sign in <a href="/login">click here</a></p>
-        <p th:if="${#fields.hasErrors('username')}">Invalid or used username</p>
+        <p th:text="${usernameError}"></p>
+        <p th:if="${#fields.hasErrors('username')}">Invalid username</p>
         <p th:if="${#fields.hasErrors('password')}">Invalid password</p>
     </form>
 </div>
